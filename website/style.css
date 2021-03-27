@@ -1,0 +1,147 @@
+body {
+  background: #0a1f44;
+  font-family: "Oswald", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+#app {
+  color: #fff;
+  justify-content: center;
+  width: 300px;
+}
+
+.holder {
+  margin-bottom: 1em;
+}
+
+.weather-info__card {
+  background: #fff;
+  color: #1e2432;
+  padding: 2em;
+  border-radius: 20px;
+  min-height: 280px;
+}
+
+#city {
+  color: #53627c;
+  font-size: 24px;
+  margin-bottom: 0.2em;
+}
+
+#date {
+  color: #53627c;
+  font-size: 16px;
+  margin-bottom: 0.1rem;
+}
+
+#content {
+  color: #53627c;
+  font-size: 16px;
+}
+
+#temp {
+  font-size: 48px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+#description {
+  color: #53627c;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+label {
+  display: block;
+  font-size: 27px;
+}
+
+input {
+  display: block;
+  height: 40px;
+  width: 100%;
+  background: #0a1f44;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 1em;
+}
+
+button {
+  width: 100%;
+  background: #ff1e42;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+/* helper classes */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+}
+
+.hidden {
+  display: none;
+}
+
+#error {
+  color: #f0d43a;
+}
+
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+button:hover,
+button:focus {
+  background: #c3112d;
+}
+
+/* Style for Placeholder Text*/
+::placeholder {
+  /* Firefox, Chrome, Opera */
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-size: 20px;
+}
