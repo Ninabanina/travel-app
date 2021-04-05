@@ -105,5 +105,4 @@ const displayWeatherData = async () => {
 
 document.getElementById("generate").addEventListener("click", generateData);
 
-
 export { generateData }

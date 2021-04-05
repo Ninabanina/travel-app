@@ -15,7 +15,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const geonameUsername = process.env.GEONAME_USERNAME;
-const geonameBaseURL = 'http://api.geonames.org/searchJSON?';
+const weatherAPIKey = process.env.WEATHERAPIKEY;
 
 /* Middleware*/
 const bodyParser = require("body-parser");
@@ -55,5 +55,8 @@ app.post("/add", (req, res) => {
 });
 
 app.get("/getKey", (req, res) => {
-  res.send({ GeonameKey: geonameUsername });
+  res.send({ 
+    GeonameKey: geonameUsername,
+    WeatherAPIKey: weatherAPIKey
+  });
 })

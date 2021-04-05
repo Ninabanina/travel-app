@@ -28,9 +28,17 @@
     <div id="date"></div>
     <div id="content"></div>
   </div>
-  <label class="visuallyhidden" for="location">Location</label>
-  <input id="location" type="text" placeholder="Enter location here"></input>
-  <button id="getGeoname" onclick="return Client.getGeonameData(event)">get GEOname</button>
+  <div>
+    <label class="visuallyhidden" for="location">Location</label>
+    <input id="location" type="text" placeholder="Enter location here"></input>
+  </div>
+  <button id="getGeoname" onclick="return Client.submitForm(event)">get GEOname</button>
+  <div>
+    <label class="visuallyhidden" for="departure-date">Departure Date</label>
+    <input id="departure-date" type="date" placeholder="Enter departure date here"></input>
+    <button id="getWeather" onclick="return Client.getWeatherData(event)">get Weather</button>
+  </div>
+  
   </div>
 <!-- 
   <script>
