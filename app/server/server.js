@@ -1,11 +1,21 @@
+const data = {}
+
 // Setup empty JS object to act as endpoint for all routes
 projectData = {};
 
 // Require Express to run server and routes
 const express = require("express");
+const fetch = require('node-fetch');
 
 // Start up an instance of app
 const app = express();
+
+// Setup environment variables
+const dotenv = require('dotenv');
+dotenv.config();
+
+const geonameUsername = process.env.GEONAME_USERNAME;
+const geonameBaseURL = 'http://api.geonames.org/searchJSON?';
 
 /* Middleware*/
 const bodyParser = require("body-parser");
@@ -27,7 +37,7 @@ app.get('/', function (req, res) {
 })
 
 // Setup Server
-const port = 8001;
+const port = 8080;
 
 const server = app.listen(port, () => {
   console.log(`running on localhost: ${port}`);
@@ -43,3 +53,7 @@ app.post("/add", (req, res) => {
   projectData = req.body;
   res.send({ message: "Post received" });
 });
+
+app.get("/getKey", (req, res) => {
+  res.send({ GeonameKey: geonameUsername });
+})

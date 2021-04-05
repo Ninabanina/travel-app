@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Weather Journal</title>
+<title>Travel App</title>
 <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
 </head>
  <body>
 <div id = "app">
   <div class ="holder headline">
-    <h1>Weather App</h1>
+    <h1>Travel Planner</h1>
   </div>
   <div class ="holder zip">
     <label class="visuallyhidden" for="zip">Enter Zipcode here</label>
@@ -28,8 +28,11 @@
     <div id="date"></div>
     <div id="content"></div>
   </div>
+  <label class="visuallyhidden" for="location">Location</label>
+  <input id="location" type="text" placeholder="Enter location here"></input>
+  <button id="getGeoname" onclick="return Client.getGeonameData(event)">get GEOname</button>
   </div>
-
+<!-- 
   <script>
     // Check that service workers are supported
     if ('serviceWorker' in navigator) {
@@ -38,7 +41,7 @@
             navigator.serviceWorker.register('/service-worker.js');
         });
     }
-   </script>
+   </script> -->
 
 </body>
 </html>
