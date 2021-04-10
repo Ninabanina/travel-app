@@ -1,8 +1,6 @@
 form {
     display: flex;
-    background: #f3f4f6;
-    padding: 1.5em;
-
+    
     .row {
         display: flex;
         flex-direction: column;
@@ -18,5 +16,14 @@ form {
         border-radius: 0;
         transition: border .33s cubic-bezier(.4,0,0,1);
         height: 26px;
+    }
+
+    @media screen and (max-width: 800px) {
+        flex-direction: column;
+
+        .row {
+            width: 100%;
+            margin-bottom: 1em;
+        }
     }
 }

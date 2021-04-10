@@ -1,21 +1,28 @@
 const submitForm = async (event) => {
     event.preventDefault();
+    hiddenErrorMessage();
 
     const location = document.getElementById('location').value;
     const startDate = document.getElementById('start-date').value;
     const finishDate = document.getElementById('finish-date').value;
     const forecastType =  dateDifferences(startDate, 'now') > 7 ? 'daily' :  'current';
-    const travelPeriod = dateDifferences(startDate, finishDate);
-
-    if(location && startDate) {
-        const weartherData = await Client.getWeatherData(location, forecastType);
-        const cityImage = await Client.getCityImage(location);
-
-        updateUI(weartherData, cityImage, travelPeriod);
-        console.log(weartherData);
-        console.log(cityImage);
+    const travelPeriod = dateDifferences(startDate, finishDate) + 1;
+    
+    if(location && startDate && finishDate) {
+        // Check input city name
+        if(!Client.checkCityName(location)) {
+            showErrorMessage("Please put valid city name.")
+        } else {
+            const weartherData = await Client.getWeatherData(location, forecastType);
+            const cityImage = await Client.getCityImage(location);
+    
+            updateUI(weartherData, cityImage, travelPeriod);
+            console.log(weartherData);
+            console.log(cityImage);
+        }
+    } else {
+        showErrorMessage("Please fill in all data.")
     }
-    console.log("travel period: " + travelPeriod);
 }
 
 function dateDifferences(startDate, finishDate) {
@@ -42,10 +49,10 @@ async function updateUI(weatherInfo, cityInfo, travelInfo) {
 }
 
 function displayCityImg(cityInfo) {
-    if(cityInfo) {
+    if(cityInfo.hits.length) {
         document.getElementById("city-img").src = cityInfo.hits[0].webformatURL;
     } else {
-        document.getElementById("city-img").src = cityInfo.hits[0].webformatURL;
+        document.getElementById("city-img").src = 'https://pixabay.com/get/ged565cd90cc2fc5ce4d0cd51fd058c8dd0309dced5bab3697e1b93ae04551a184c38827d89efe5c46c9495f9f4de93adec9dce2073340f40b08041c4210249fd_1280.jpg';
     }
     
 }
@@ -65,6 +72,13 @@ function displayTravelPeriod(travelPeriodData) {
     }
 }
 
+function showErrorMessage(message) {
+    document.getElementById("errorMessage").classList.remove("hidden");
+    document.getElementById("errorMessage").innerHTML = message;
+}
 
+function hiddenErrorMessage() {
+    document.getElementById("errorMessage").classList.add("hidden");
+}
 
 export { submitForm }

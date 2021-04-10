@@ -7,34 +7,37 @@
 </head>
  <body>
 <div id = "app" class="container">
-  <div class ="holder headline">
+  <div class ="headline">
     <h1>Travel Planner</h1>
   </div>
-  <form>
-    <div class="row">
-      <label for="location">Location</label>
-      <input id="location" type="text"></input>
-    </div>
-    <div class="row">
-      <label for="start-date">Start Date</label>
-      <input id="start-date" type="date"></input>
-    </div>
-    <div class="row">
-      <label for="finish-date">Finish Date</label>
-      <input id="finish-date" type="date"></input>
-    </div>
-    <button id="getGeoname" onclick="return Client.submitForm(event)">Search</button>
-  </form>
+  <div class="container-form">
+    <form>
+      <div class="row">
+        <label for="location">Location<small>(City Name)</small>:</label>
+        <input id="location" type="text"></input>
+      </div>
+      <div class="row">
+        <label for="start-date">Start Date:</label>
+        <input id="start-date" type="date"></input>
+      </div>
+      <div class="row">
+        <label for="finish-date">Finish Date:</label>
+        <input id="finish-date" type="date"></input>
+      </div>
+      <button id="getGeoname" onclick="return Client.submitForm(event)">Search</button>
+    </form>
+    <div class="error-message hidden" id="errorMessage"></div>
+</div>
   <section class="results-section hidden" id="results">
     <div class="results-section__img">
-      <img id="city-img" src="https://pixabay.com/get/ged565cd90cc2fc5ce4d0cd51fd058c8dd0309dced5bab3697e1b93ae04551a184c38827d89efe5c46c9495f9f4de93adec9dce2073340f40b08041c4210249fd_1280.jpg" alt="City image">
+      <img id="city-img" src="" alt="City image">
     </div>
     <div class="results-section__content">
       <h2 class="results-section__content__title">Travel Plan</h2>
       <h3 class="results-section__content__city-name" id="city-name"></h3>
       <P class="results-section__content__travel-period" id="travel-period"></P>
       <div>
-        <img id="weather-icon" src="./app/client/icons/a01d.png" alt="weather icon">
+        <img id="weather-icon" src="" alt="weather icon">
         <p class="results-section__content__weather-tem" id="weather-tem"></p>
         <p class="results-section__content__weather-des" id="weather-des"></p>
       </div>

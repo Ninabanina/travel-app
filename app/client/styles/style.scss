@@ -10,6 +10,15 @@ body {
   padding: 1.5em;
 }
 
+.container-form {
+  background: #f3f4f6;
+  padding: 1.5em;
+}
+
+.headline {
+  text-align: center;
+}
+
 .results-section {
   display: flex;
   flex-direction: row;
@@ -65,6 +74,14 @@ body {
       margin: 0;
     }
   }
+
+  @media screen and (max-width: 640px) {
+    flex-direction: column;
+
+    &__img {
+      width: 100%;
+    }
+  }
 }
 
 /* helper classes */
@@ -82,4 +99,8 @@ body {
 
 .hidden {
   display: none;
+}
+
+.error-message {
+  color: #e4002b;
 }
