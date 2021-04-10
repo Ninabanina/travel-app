@@ -10,36 +10,14 @@
   <div class ="holder headline">
     <h1>Travel Planner</h1>
   </div>
-  <div class ="holder zip">
-    <label class="visuallyhidden" for="zip">Enter Zipcode here</label>
-    <input type="text" id="zip" placeholder="enter zip code here">
-    <div id="error" class="hidden">Please enter a ZIP code.</div>
-  </div>
-  <div class ="holder feel">
-    <label class="visuallyhidden" for="feelings">How are you feeling today?</label>
-    <input id="feelings" placeholder="Enter your feelings here"></input>
-    <button id="generate" type = "submit"> Generate </button>
-  </div>
-  <div id="weather-data__container" class ="holder weather-info__card hidden">
-    <div id="city"></div> 
-    <div id="temp"></div>
-    <div id="icon"></div> 
-    <div id="description"></div> 
-    <div id="date"></div>
-    <div id="content"></div>
-  </div>
-  <div>
+  <form>
     <label class="visuallyhidden" for="location">Location</label>
     <input id="location" type="text" placeholder="Enter location here"></input>
-  </div>
-  <button id="getGeoname" onclick="return Client.submitForm(event)">get GEOname</button>
-  <div>
     <label class="visuallyhidden" for="departure-date">Departure Date</label>
     <input id="departure-date" type="date" placeholder="Enter departure date here"></input>
-    <button id="getWeather" onclick="return Client.getWeatherData(event)">get Weather</button>
-  </div>
-  
-  </div>
+    <button id="getGeoname" onclick="return Client.submitForm(event)">get GEOname</button>
+  </form>
+</div>
 <!-- 
   <script>
     // Check that service workers are supported

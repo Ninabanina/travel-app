@@ -7,7 +7,9 @@ const submitForm = async (event) => {
 
     if(location && departingDate) {
         const weartherData = await Client.getWeatherData(location, forecastType);
+        const cityImage = await Client.getCityImage(location);
         console.log(weartherData);
+        console.log(cityImage);
     }
 }
 
