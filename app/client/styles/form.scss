@@ -1,0 +1,22 @@
+form {
+    display: flex;
+    background: #f3f4f6;
+    padding: 1.5em;
+
+    .row {
+        display: flex;
+        flex-direction: column;
+        padding-right: 1em;
+        width: 33.33%;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+        background: #fff;
+        border: 1px solid #a5adb5;
+        padding: 10px;
+        border-radius: 0;
+        transition: border .33s cubic-bezier(.4,0,0,1);
+        height: 26px;
+    }
+}

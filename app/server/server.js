@@ -56,8 +56,7 @@ app.post("/add", (req, res) => {
 });
 
 app.get("/weather/:forecastType/:city" , async (req, res) => {
-  // let city = req.params.city;
-  let {city, forecastType='current'} = req.params;
+  let { city, forecastType='current'} = req.params;
   const geonameBaseURL = 'http://api.geonames.org/';
   let geoResponse = await fetch(`${geonameBaseURL}searchJSON?q=${city}&maxRows=1&username=${GEONAME_USERNAME}`);
   let geoData = await geoResponse.json()
