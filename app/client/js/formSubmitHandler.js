@@ -6,11 +6,7 @@ const submitForm = async (event) => {
     const forecastType =  dateDifferences(departingDate) > 7 ? 'daily' :  'current';
 
     if(location && departingDate) {
-        const geonameData = await Client.getGeonameData(location);
-        const lat = geonameData.geonames[0].lat;
-        const lng = geonameData.geonames[0].lng
-
-        const weartherData = await Client.getWeatherData(lat, lng, forecastType);
+        const weartherData = await Client.getWeatherData(location, forecastType);
         console.log(weartherData);
     }
 }

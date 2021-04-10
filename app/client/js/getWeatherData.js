@@ -1,16 +1,10 @@
-async function getWeatherData(lat, lng, forecastType) {
-    const weatherbitBaseURL = `https://api.weatherbit.io/v2.0/${forecastType}?lat=${lat}&lon=${lng}`;
-    console.log("url" + weatherbitBaseURL)
+async function getWeatherData(city, forecastType) {
+    const weatherbitBaseURL = `http://localhost:8080/weather/${forecastType}/${city}`;
     
-    let data = await fetch('http://localhost:8080/getKey')
-    let keys = await data.json();
-    let APIkey = keys.WeatherAPIKey;
+    let response = await fetch(weatherbitBaseURL)
+    let data = await response.json();
     
-    if (weatherbitBaseURL && APIkey) {
-        let response = await fetch(`${weatherbitBaseURL}&key=${APIkey}`)
-        let json = await response.json()
-        return json
-    }
+    return data
 }
 
 export { getWeatherData }

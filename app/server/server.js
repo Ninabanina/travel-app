@@ -54,6 +54,24 @@ app.post("/add", (req, res) => {
   res.send({ message: "Post received" });
 });
 
+app.get("/weather/:forecastType/:city" , async (req, res) => {
+  // let city = req.params.city;
+  let {city, forecastType='current'} = req.params;
+  const geonameBaseURL = 'http://api.geonames.org/';
+  let geoResponse = await fetch(`${geonameBaseURL}searchJSON?q=${city}&maxRows=1&username=${process.env.GEONAME_USERNAME}`);
+  let geoData = await geoResponse.json()
+  if (geoData.geonames.length) {
+      let {lat, lng} = geoData.geonames[0];
+      const weatherbitBaseURL = forecastType === 'current'
+         ? `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lng}`
+         : `https://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lng}`;
+      let weatherResponse = await fetch(`${weatherbitBaseURL}&key=${process.env.WEATHERAPIKEY}`)
+      let weatherData = await weatherResponse.json()
+      res.send(weatherData)
+  }
+})
+
+
 app.get("/getKey", (req, res) => {
   res.send({ 
     GeonameKey: geonameUsername,
