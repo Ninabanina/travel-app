@@ -1,6 +1,6 @@
 var express = require("express");
 const fetch = require("node-fetch");
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 
 var router = express.Router();
 dotenv.config();
@@ -10,10 +10,10 @@ const GEONAME_USERNAME = process.env.GEONAME_USERNAME;
 const WEATHER_APIKEY = process.env.WEATHER_APIKEY;
 const PIXABAY_APIKEY = process.env.PIXABAY_APIKEY;
 
-router.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
-})
-  
+router.get("/", function (req, res) {
+  res.sendFile("dist/index.html");
+});
+
 router.get("/weather/:forecastType/:city", async (req, res) => {
   let { city, forecastType = "current" } = req.params;
   const geonameBaseURL = "http://api.geonames.org/";
@@ -46,4 +46,4 @@ router.get("/city/:cityName", async (req, res) => {
   res.send(pixaData);
 });
 
-module.exports = router ;
+module.exports = router;

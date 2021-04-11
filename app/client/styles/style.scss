@@ -43,7 +43,7 @@ body {
     margin-left: 1em;
 
     &__title {
-      font-size: .875rem;
+      font-size: 0.875rem;
       text-transform: uppercase;
       letter-spacing: 2px;
       color: #e4002b;
@@ -85,18 +85,6 @@ body {
 }
 
 /* helper classes */
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-}
-
 .hidden {
   display: none;
 }

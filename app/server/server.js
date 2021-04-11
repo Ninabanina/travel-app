@@ -1,6 +1,6 @@
 // Require Express to run server and routes
 const express = require("express");
-const routes = require("./routes")
+const routes = require("./routes");
 
 // Start up an instance of app
 const app = express();
@@ -18,9 +18,9 @@ app.use(cors());
 
 // Initialize the main project folder
 app.use(express.static("dist"));
-app.use("/", routes)
+app.use("/", routes);
 
-console.log(__dirname)
+console.log(__dirname);
 
 // Setup Server
 const port = 8080;
