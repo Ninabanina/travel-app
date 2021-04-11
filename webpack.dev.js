@@ -2,6 +2,7 @@ const path = require("path")
 const webpack = require("webpack")
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -29,6 +30,7 @@ module.exports = {
             template: "./app/client/views/index.html",
             filename: "./index.html"
         }),
+        new WorkboxPlugin.GenerateSW(),
         new CleanWebpackPlugin({
             // Simulate the removal of files
             dry: true,
